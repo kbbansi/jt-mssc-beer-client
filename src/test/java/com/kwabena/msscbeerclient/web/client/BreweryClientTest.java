@@ -31,7 +31,10 @@ class BreweryClientTest {
     @Test
     @DisplayName("Should save new beer")
     void saveNewBeer() {
-        BeerDto beerDto = BeerDto.builder().beerName("NewBeer").build();
+        BeerDto beerDto = BeerDto.builder()
+                .beerName("NewBeer")
+                .beerStyle("HERBAL")
+                .build();
 
         URI uri = client.saveNewBeer(beerDto);
         log.info("Resource Location: [{}]", uri);
@@ -41,7 +44,10 @@ class BreweryClientTest {
     @Test
     @DisplayName("Should update beer")
     void updateBeer() {
-        BeerDto beerDto = BeerDto.builder().beerName("NewBeer").build();
+        BeerDto beerDto = BeerDto.builder()
+                .beerName("NewBeer")
+                .beerStyle("HERBAL")
+                .build();
         client.updateBeer(UUID.randomUUID(), beerDto);
     }
 
